@@ -277,19 +277,16 @@ Node* searchIterative(Node* head, int key)			// 반복적 탐색
 
 int freeBST(Node* head) 							// inorder처럼 recursive 하게 동작
 {
-	int freeBST(Node* head) {
-    if (head == NULL) return 1;
+    if (head == NULL) return 1;						// head가 NULL이라면 종료
 
-    Node* temp = head->left;
+    Node* temp = head->left;						// temp는 트리의 첫 번째 노드를 가리킴
 
-    if (temp != NULL) {
-        freeBST(temp->left);
-        freeBST(temp->right);
-        free(temp);
+    if (temp != NULL) {								// temp가 NULL이 아니라면				
+        freeBST(temp->left);						// 왼쪽 자식 노드로 이동	
+        freeBST(temp->right);						// 오른쪽 자식 노드로 이동
+        free(temp);									// temp에 할당된 메모리 해제
     }
 
-    free(head);
+    free(head);										// head에 할당된 메모리 해제
     return 1;
-}
-
 }
